@@ -129,6 +129,4 @@ describe('Thermostat', () => {
 
     expect(thermostat.getCurrentEnergyUsage()).toBe('high-usage');
   })
-
-
 })

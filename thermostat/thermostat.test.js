@@ -95,5 +95,40 @@ describe('Thermostat', () => {
     expect(thermostat.getTemperature()).toBe(20);
   })
 
+  it('#getCurrentEnergyUsage returns "low-usage" when temp is < 18', () => {
+    const thermostat = new Thermostat();
+
+    //call #down 5 times
+    for (let i = 0 ; i < 5 ; i++) {
+      thermostat.down();
+    }
+
+    expect(thermostat.getCurrentEnergyUsage()).toBe('low-usage');
+  })
+
+  it('#getCurrentEnergyUsage returns "medium-usage" when temp is <= 25', () => {
+    const thermostat = new Thermostat();
+
+    //call #up 5 times
+    for (let i = 0 ; i < 5 ; i++) {
+      thermostat.up();
+    }
+
+    expect(thermostat.getCurrentEnergyUsage()).toBe('medium-usage');
+  })
+
+  it('#getCurrentEnergyUsage returns "high-usage" when temp is > 25', () => {
+    const thermostat = new Thermostat();
+
+    thermostat.setPowerSavingMode(false);
+
+    //call #up 10 times
+    for (let i = 0 ; i < 10 ; i++) {
+      thermostat.up();
+    }
+
+    expect(thermostat.getCurrentEnergyUsage()).toBe('high-usage');
+  })
+
 
 })

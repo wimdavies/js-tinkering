@@ -43,5 +43,17 @@ describe('Thermostat', () => {
     expect(thermostat.getTemperature()).toBe(10);
   })
 
+  it('PSM is on by default, and #up cannot increase temp above 25', () => {
+    const thermostat = new Thermostat();
+
+    expect(thermostat.psm).toBe(true);
+    
+    for (let i = 0 ; i < 10 ; i++) {
+      thermostat.up();
+    }
+
+    expect(thermostat.getTemperature()).toBe(25);
+  })
+
 
 })

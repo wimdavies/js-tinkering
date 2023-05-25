@@ -1,6 +1,7 @@
 class Thermostat {
   constructor() {
     this.temperature = 20
+    this.psm = true
   }
 
   getTemperature() {
@@ -8,7 +9,7 @@ class Thermostat {
   }
 
   up() {
-    this.temperature++;
+    if (this.psm = true && this.temperature < 25) this.temperature++;
   }
 
   down() {

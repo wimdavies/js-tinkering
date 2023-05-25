@@ -77,5 +77,23 @@ describe('Thermostat', () => {
     expect(thermostat.getTemperature()).toBe(32);
   })
 
+  it('#reset resets temp to 20, from above and below', () => {
+    const thermostat = new Thermostat();
+
+    thermostat.up();
+    thermostat.up();
+
+    thermostat.reset();
+
+    expect(thermostat.getTemperature()).toBe(20);
+    
+    thermostat.down();
+    thermostat.down();
+
+    thermostat.reset();
+
+    expect(thermostat.getTemperature()).toBe(20);
+  })
+
 
 })

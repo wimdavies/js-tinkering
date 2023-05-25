@@ -9,11 +9,21 @@ class Thermostat {
   }
 
   up() {
-    if (this.psm = true && this.temperature < 25) this.temperature++;
+    switch (this.psm) {
+      case (true):
+        if (this.temperature < 25) this.temperature++;
+        break;
+      case false:
+        if (this.temperature < 32) this.temperature++;
+    }
   }
 
   down() {
     if (this.temperature > 10) this.temperature--; 
+  }
+
+  setPowerSavingMode(boolean) {
+    this.psm = boolean
   }
 
 

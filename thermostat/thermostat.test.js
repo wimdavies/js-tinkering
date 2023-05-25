@@ -25,5 +25,23 @@ describe('Thermostat', () => {
     expect(thermostat.getTemperature()).toBe(18);
   })
 
+  it('#down cannot decrease temperature below 10', () => {
+    const thermostat = new Thermostat();
+
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+
+    expect(thermostat.getTemperature()).toBe(10);
+  })
+
 
 })
